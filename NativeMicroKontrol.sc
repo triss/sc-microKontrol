@@ -134,7 +134,7 @@ NativeMicroKontrol {
     // disables native mode on MicroKontrol
     disableNativeMode {
         // set the sysex mode 
-        sysexIn.func = {
+        sysexIn.func = { |...data|
             if(data[0] == Int8Array[240, 66, 64, 110, 0, 64, 0, 2, 247]) {
                "MicroKontrol has left Native Mode.".postln;
             };
