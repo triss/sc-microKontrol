@@ -134,13 +134,6 @@ NativeMicroKontrol {
     // disables native mode on MicroKontrol and sets up this object to display
     // a message upon success.
     disableNativeMode {
-        // set the sysex mode 
-        sysexIn.func = { |...data|
-            if(data[0] == Int8Array[240, 66, 64, 110, 0, 64, 0, 2, 247]) {
-               "MicroKontrol has left Native Mode.".postln;
-            };
-        };
-
         // request that native mode is exited
         midiOut.sysex(Int8Array[240, 66, midiChannel, 110, 0, 0, 0, 0, 247]);
     }
